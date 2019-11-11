@@ -1,0 +1,767 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+header{
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body{background: black}
+#game-body {
+  line-height: 1;
+  background-image: url(img/Background/back_miroir3.png);
+  background-size : cover;
+  background-position: center;
+
+}
+
+/* MISE EN PAGE DU TEXTE */
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+.PressStart{
+  font-family: 'Press Start 2P', cursive;
+  color: #ffffff;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* CADRE DU JEU */
+.cly{
+	color: yellow;
+}
+.score{
+	font-size: 24px;
+}
+.absl-play{
+	position: absolute;
+	right: 150px;
+	top: 150px;
+	width: 120px;
+	height: 70px;
+}
+.absl-score{
+	position: absolute;
+	left: 80px;
+	top: 150px;
+	width: 350px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+}
+.absl-start{
+	position: absolute;
+	right: 235px;
+	top: 390px;
+	width: 180px;
+	height: 90px;
+}
+.cadre{
+  height: 700px;
+  width: 700px;
+  background-image: url(img/Background/background3.png);
+  border: solid 2px grey;
+  position: relative;
+  overflow: hidden;
+}
+/* HEROS */
+#carre{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/hero/hero_fixe.png);
+  position: absolute;
+	z-index: 5000;
+  top: 300px;
+  left: 300px;
+}
+/* ENNEMIS */
+#ennemi1{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+#obst1{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+#obst2{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 150px;
+  left: 100px;
+}
+#obst3{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 50px;
+  right: 200px;
+}
+#obst4{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 250px;
+  left: 300px;
+}
+#obst5{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 450px;
+  left: 150px;
+}
+#obst6{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 650px;
+  left: 500px;
+}
+#obst7{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 450px;
+  left: 550px;
+}
+#obst8{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 550px;
+  left: 350px;
+}
+#obst9{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 100px;
+  left: 600px;
+}
+#obst10{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/botte.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 350px;
+  left: 500px;
+}
+.groundFx{
+	height: 50px;
+  width: 50px;
+  background-size: cover;
+  position: absolute;
+}
+.groundHerb{
+	background-image: url(img/groundherb.png);
+}
+.groundStonr{
+	background-image: url(img/groundfx.png);
+}
+.groundBones{
+	background-image: url(img/bones.png);
+}
+.gpos1{
+	bottom:300px;
+	left: 250px;
+}
+.gpos2{
+	bottom:400px;
+	left: 350px;
+}
+.gpos3{
+	bottom:500px;
+	left: 150px;
+}
+.gpos4{
+	bottom:650px;
+	left: 50px;
+}
+.gpos5{
+	bottom:350px;
+	left: 100px;
+}
+.gpos6{
+	bottom:450px;
+	left: 300px;
+}
+.gpos7{
+	bottom:150px;
+	left: 200px;
+}
+.gpos8{
+	bottom:100px;
+	left: 50px;
+}
+.gpos9{
+	bottom:100px;
+	left: 550px;
+}
+.gpos10{
+	bottom:50px;
+	left: 600px;
+}
+.gpos11{
+	bottom:200px;
+	left: 200px;
+}
+.gpos12{
+	bottom:300px;
+	left: 350px;
+}
+.gpos14{
+	bottom:400px;
+	left: 50px;
+}
+.gpos15{
+	bottom:300px;
+	left: 550px;
+}
+.gpos16{
+	bottom:650px;
+	left: 200px;
+}
+.gpos13{
+	bottom:50px;
+	left: 150px;
+}
+.roue{
+	height: 100px;
+	width: 100px;
+	background-size: cover;
+	position: absolute;
+}
+.roueb{
+	background-image: url(img/roue.png);
+}
+.feuille{
+	background-image: url(img/feuille.png);
+}
+.blood{
+	background-image: url(img/blood.png);
+}
+.rpos1{
+	bottom: 200px;
+	left: 600px;
+}
+.rpos11{
+	bottom: 350px;
+	left: 200px;
+}
+.rpos12{
+	bottom: 250px;
+	left: 500px;
+}
+.rpos13{
+	bottom: 100px;
+	left: 350px;
+}
+.rpos2{
+	bottom: 550px;
+	left: 600px;
+}
+.rpos3{
+	bottom: 500px;
+	left: 200px;
+}
+.rpos4{
+ bottom: 250px;
+ left: 50px;
+}
+.rpos6{
+ bottom: 300px;
+ left: 400px;
+}
+.rpos7{
+ bottom: 0px;
+ left: 250px;
+}
+.rpos8{
+ bottom: 0px;
+ left: 500px;
+}
+.rpos9{
+ bottom: 0px;
+ left: 0px;
+}
+.rpos10{
+ bottom: 500px;
+ left: 400px;
+}
+
+
+
+
+.epos1{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+#ennemi2{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+.epos2{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+#ennemi3{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.epos3{
+	height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+#ennemi4{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+#ennemi5{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 150px;
+  right: 350px;
+}
+
+#ennemi6{
+  height: 50px;
+  width: 50px;
+  background-image: url(img/ennemi/ennemi_fixe.png);
+  background-size: cover;
+  position: absolute;
+  top: 150px;
+  right: 350px;
+}
+
+.box-titre{
+  height: 100%;
+}
+
+.box-cooldown{
+  height: 200px;
+}
+
+
+/* BOMBES */
+.bombashit{
+  position: absolute;
+	z-index: 5500;
+  height: 50px;
+  width: 50px;
+  background-image: url(img/bombe/bombe.gif);
+  background-size: cover;
+}
+
+/* EXPLOSION */
+.explosion{
+  position: absolute;
+  height: 50px;
+  width: 50px;
+	z-index: 5600;
+  background-image: url(img/bombe/bombe.png);
+  background-size: cover;
+	transition: width 5s ease-in;
+	transition: height 5s ease-in;
+	transition: bottom 5s ease-in;
+	transition: left 5s ease-in;
+
+}
+.ex2{
+  width: 150px;
+  height: 150px;
+  background-image: url(img/bombe/explosion-gif-png-3.gif);
+  background-size: cover;
+}
+/* DISPLAY NONE */
+.dis-none{
+  display: none;
+}
+
+#start{
+	position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/Background/plaquette.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.custom-cursor{
+	cursor: pointer;
+}
+
+
+#game-section{
+  display: flex;
+  justify-content: space-around;
+	align-items: center;
+  height: 93vh;
+
+}
+
+
+.col-width{
+  width: 300px;
+
+}
+
+/* WIN */
+
+#win{
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/Background/background_win.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+#suicide{
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/Background/background_gameover2.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+/* GAME OVER */
+
+#retry{
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/Background/background_gameover.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+#retry-content{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-screen-retry{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#gameover{
+  width: auto;
+  height: 100%;
+  margin-top: 5px;
+}
+#gameover1{
+  width: auto;
+  height: 75%;
+  margin-top: 5px;
+}
+  #col-droite{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+#col-gauche{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* COOLDOWN */
+#cooldown-nav{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 5px;
+}
+.affiche-cd{
+	position: relative;
+	height: 100px;
+	width: 100px;
+	margin: 5px;
+}
+#cooldown-dropBomb, #time-cooldown-dropBomb, #cooldown-gModeAfterHit, #time-cooldown-gModeAfterHit{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 2px solid black;
+}
+.times{
+	background-image: url(img/Barres/carreNR.gif);
+	opacity: 0.5;
+}
+/* COULEUR COOLDOWN */
+.coolBomb{
+  background : url(img/Barres/bombe_temp.gif);
+
+}
+.coolGmod{
+  background : url(img/Barres/LEbibi.gif);
+}
+/* BOUTON RETRY */
+#retry-button1, #retry-button2, #retry-button3{
+  cursor : pointer;
+
+}
+/* NOMBRE DE VIES */
+.nombrevie1{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+.nombrevie2{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+.nombrevie3{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+/* NOMBRE DE BOMBES */
+.nombrebombe1{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+.nombrebombe2{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+.nombrebombe3{
+  width: 20%;
+  padding-top: 20px;
+  display: block;
+}
+
+/* FOOTER */
+#game-footer{
+  height: 3vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/*More */
+	/* #3A31BD */
+	/* #003654; */
+	.brd{
+		border: 2px solid red;
+	}
+	.hgt-100{
+		height: 100%;
+	}
+	.pad-container{
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
+#last-news{
+	background: #04212D;
+}
+.big-title{
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+.big-title2{
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.flexcarre{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.back-news{
+	height: 175px;
+	background-image: url(img/plaquette2.png);
+	background-size: cover;
+}
+.brd-real{
+	border: 1px solid #212121;
+}
+.blue-etiket{
+	background-color: #084259;
+	width: 230px;
+	padding: 10px;
+}
+.block-news{
+	width: 650px;
+}
+.back-article{
+	height: 90px;
+	background-image: url(img/backaqua.png);
+}
+.text-form{
+	padding: 20px;
+	line-height: 24px;
+}
+.b-text{
+	color: #003654;
+}
+#gameplay{
+	background-image: url(img/backaqua.png);
+	background-size: cover;
+	background-position: top;
+}
+#gamecontrol{
+	background: #122449;
+	background-image: url(img/background45.png);
+	background-size: contain;
+}
+.bg-black{
+	background-color: rgba(0, 0, 0, 0.9);
+}
+.describe-box{
+	display: flex;
+	justify-content: space-around;
+	width: 65%;
+	margin: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.describe-text{
+	margin-left: 50px;
+}
+.describe-container{
+	margin-top: 50px;
+	margin-bottom: 40px;
+}
+footer{
+	height: 300px;
+	background-image: url(img/cawfoot.png);
+	background-size: cover;
+	background-color: #051B4E;
+	position: relative;
+}
+.dl-pos{
+	position: absolute;
+	right: 120px;
+	top: 110px;
+}
+.css117{
+	position: absolute;
+	font-size: 98px;
+	color: #182343;
+	right: 375px;
+	bottom: 0px;
+}

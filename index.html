@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jeu js</title>
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Sigmar+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="PressStart">
+  <div id="game-body">
+    <div class="absl-score">
+      <p class="score">Score:</p>
+      <p id="scoreboard" class="score cly"></p>
+    </div>
+    <img id="ps" class="absl-play" onClick="togglePlay()" src="img/musicPlayStop/play.gif" alt="music-button">
+    <header id="startM">
+      <h1>BomberMeuh: HardCore Edition</h1>
+      <div id="scope-enemy0">
+        <div id="ennemi0" class="enemy"></div>
+      </div>
+      <audio id="gamemusic" src="songs/Jaunter-Reset.mp3"  loop></audio>
+    </header>
+    <section id="game-section">
+      <div id="col-gauche" class="col-width">
+        <p>Vies: </p>
+        <img id="life1" class="nombrevie1" src="img/Barres/vie.png" alt="vie">
+        <img id="life2" class="nombrevie2" src="img/Barres/vie.png" alt="vie">
+        <img id="life3" class="nombrevie3" src="img/Barres/vie.png" alt="vie">
+      </div>
+      <div id="ecran" class="cadre">
+        <div id="retry-screen" class="dis-none">
+          <div id="retry">
+            <div id="retry-content">
+              <div class="content-screen-retry">
+                <p>Game Over !<br><br>
+                  Fatality !
+                </p>
+                <img id="gameover"src="img/Gameover/game_over.gif" alt="gameover">
+              </div>
+              <div class="content-screen-retry">
+                <p id="retry-button1" class="retry-reload">Retry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="win-screen" class="dis-none">
+          <div id="win">
+            <div id="retry-content">
+              <div class="content-screen-retry">
+                <p>You win !</p>
+                <img id="gameover1"src="img/win/podium.png" alt="gameover">
+              </div>
+              <div class="content-screen-retry">
+                <p id="retry-button2" class="retry-reload">Retry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="suicide-screen" class="dis-none">
+          <div id="suicide">
+            <div id="retry-content">
+              <div class="content-screen-retry">
+                <p>Suicide squad !</p>
+                <img id="gameover"src="img/Gameover/gameover.gif" alt="gameover">
+              </div>
+              <div class="content-screen-retry">
+                <p id="retry-button3" class="retry-reload">Retry</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="start-screen">
+          <div id="start">
+            <div id="retry-content">
+              <div class="content-screen-retry">
+              </div>
+              <div class="content-screen-retry">
+                <img id="start-button" class="custom-cursor absl-start" src="img/musicPlayStop/start.gif" alt="start-button">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="carre"></div>
+        <div class="groundFx groundHerb gpos1"></div>
+        <div class="groundFx groundStonr gpos2"></div>
+        <div class="groundFx groundBones gpos3"></div>
+        <div class="groundFx groundHerb gpos4"></div>
+        <div class="groundFx groundBones gpos5"></div>
+        <div class="groundFx groundBones gpos6"></div>
+        <div class="groundFx groundHerb gpos7"></div>
+        <div class="groundFx groundStonr gpos8"></div>
+        <div class="groundFx groundStonr gpos9"></div>
+        <div class="groundFx groundHerb gpos10"></div>
+        <div class="groundFx groundBones gpos11"></div>
+        <div class="groundFx groundBones gpos12"></div>
+        <div class="groundFx groundHerb gpos13"></div>
+        <div class="groundFx groundStonr gpos14"></div>
+        <div class="groundFx groundBones gpos15"></div>
+        <div class="groundFx groundHerb gpos16"></div>
+        <div class="roue rpos1 feuille"></div>
+        <div class="roue rpos10 feuille"></div>
+        <div class="roue rpos2 feuille"></div>
+        <div class="roue rpos4 feuille"></div>
+        <div class="roue rpos7 feuille"></div>
+        <div class="roue rpos12 feuille"></div>
+        <div class="roue rpos5 feuille"></div>
+        <div id="obst1" class="obstacle"></div>
+        <div id="obst2" class="obstacle"></div>
+        <div id="obst3" class="obstacle"></div>
+        <div id="obst4" class="obstacle"></div>
+        <div id="obst5" class="obstacle"></div>
+        <div id="obst6" class="obstacle"></div>
+        <div id="obst7" class="obstacle"></div>
+        <div id="obst8" class="obstacle"></div>
+        <div id="obst9" class="obstacle"></div>
+        <div id="obst10" class="obstacle"></div>
+        <div id="ennemi1" class="enemy"><p class="cly">B</p></div>
+        <div id="ennemi2" class="enemy"><p class="cly">B</p></div>
+        <div id="ennemi3" class="enemy"><p class="cly">B</p></div>
+        <div id="ennemi4" class="enemy"><p class="cly">B</p></div>
+        <div id="ennemi5" class="enemy"><p class="cly">B</p></div>
+        <div id="ennemi6" class="enemy"><p class="cly">B</p></div>
+      </div>
+      <div id="col-droite" class="col-width">
+        <div class="box-titre">
+          <p>Cooldown</p>
+        </div>
+        <div class="box-cooldown">
+          <div id="cooldown-nav">
+            <div class="affiche-cd dis-none">
+              <p id="cooldown-dropBomb" class="coolBomb"></p>
+              <p id="time-cooldown-dropBomb" class="times"></p>
+            </div>
+            <div class="affiche-cd dis-none">
+              <p id="cooldown-gModeAfterHit" class="coolGmod"></p>
+              <p id="time-cooldown-gModeAfterHit" class="times"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <div id="game-footer">
+      <p>Boss: Jérôme</p>
+      <p>Designer: MySQL-Romain</p>
+      <p>Developer: Vecteur</p>
+    </div>
+  </div>
+  <section id="last-news">
+    <div class="container-news hgt-100">
+      <div class="pad-container">
+        <h2 class="big-title">Last News</h2>
+        <div class="container-carre flexcarre hgt-100">
+          <div class="block-news">
+            <div class="carre-news">
+              <div class="back-news brd-real">
+                <h3 class="blue-etiket brd-real">Realase Date !</h3>
+              </div>
+              <div class="back-article brd-real">
+                <div class="article-news hgt-100">
+                  <p class="text-form">we are happy to announce the release of BomberMeuh this Tuesday !</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="gameplay">
+    <div class="container-plays hgt-100">
+      <div class="pad-container">
+        <h2 class="big-title">Put-In</h2>
+        <div class="describe-container">
+          <div class="describe-box">
+            <img class="text-form" src="img/hero-car.png" alt="hero-card">
+            <div class="describe-text">
+              <p class="text-form">Hips have a maximum capacity lenght of three bomb at the same time.</p>
+              <p class="text-form">Hips won't go through the hay.</p>
+              <p class="text-form">Hips is weak and won't survive if he stay in the impact bomb zone.</p>
+            </div>
+          </div>
+        </div>
+        <div class="describe-container">
+          <div class="describe-box">
+            <div class="describe-text">
+              <p class="text-form">Hathors can hit Hips with their spears.</p>
+              <p class="text-form">Hathors Boss can go through the hay.</p>
+              <p class="text-form">Hators are stupid, they don't know what is bomb!</p>
+            </div>
+            <img class="text-form" src="img/hathor-card.png" alt="enemy-card">
+          </div>
+        </div>
+        <h3 class="big-title">One rule : Try to survive!</h3>
+      </div>
+    </div>
+  </section>
+  <section id="gamecontrol">
+    <div class="container-news bg-black hgt-100">
+      <div class="pad-container">
+        <h2 class="big-title2">ControlKey</h2>
+        <div class="describe-container">
+          <div class="describe-box">
+            <img class="text-form" src="img/keyboard.gif" alt="arrow-keyboard">
+            <div class="describe-text">
+              <p class="text-form">Use Arrow Keys to move hips and escape Hathors.</p>
+              <p class="text-form">Dont forget Hips won't go through the hay.</p>
+              <p class="text-form">If you touch a Hators, you will loose one life.</p>
+            </div>
+          </div>
+          <div class="describe-box">
+            <img class="text-form" src="img/space.gif" alt="arrow-keyboard">
+            <div class="describe-text">
+              <p class="text-form">Use SpaceBar to drop bomb on the floor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <img class="dl-pos" src="img/download.png" alt="download">
+    <p class="css117">CSS117</p>
+  </footer>
+  <script src="jquery-3.4.1.js"></script>
+  <script src="start-stopM.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
